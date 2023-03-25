@@ -10,20 +10,28 @@
     <script src="script.js" defer></script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b7f198ecf0d37facec1a052b3/4ce2f0942e589d95db8414297.js");</script>
     <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html" class="logo">GermanMedResidency</a>
-            <span class="hamburger" id="hamburger">&#9776;</span><!-- Add the hamburger menu here -->
-            <ul id="nav-links">
-              <li><a href="living-in-germany.html">Living in Germany</a></li>
-              <li><a href="application-process.html">Application Process</a></li>
-              <li><a href="resources.html">Resources</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+        <a href="index.html" class="active">German Medical Residency</a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+          <a href="living-in-germany.html">Living in Germany</</a>
+          <a href="application-process.html">Application Process</a>
+          <a href="resources.html">Resources</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+        </div>
+
     </header>
     <main>
       <!-- Add this code within the <main> element -->
