@@ -46,40 +46,24 @@
       </section>
       <p></p>
     <!-- Add the contact form -->
-    <section class="contact-form">
-                <h2>Book a Consultation</h2>
-                <form class="contact-form" action="https://bit.us14.list-manage.com/subscribe/post?u=b7f198ecf0d37facec1a052b3&amp;id=b6ce4806de&amp;v_id=3261&amp;f_id=00ce86e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-          <div class="form-group">
-            <label for="mce-FNAME">First Name</label>
-            <input type="text" id="mce-FNAME" name="FNAME" required>
-          </div>
-          <div class="form-group">
-            <label for="mce-LNAME">Last Name</label>
-            <input type="text" id="mce-LNAME" name="LNAME" required>
-          </div>
-          <div class="form-group">
-            <label for="mce-EMAIL">Email</label>
-            <input type="email" id="mce-EMAIL" name="EMAIL" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="MESSAGE" rows="5" placeholder="I am interested in scheduling a personalized consultation to explore opportunities for pursuing education and employment in the German healthcare sector." required></textarea>
-          </div>
-          <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
-            <div class="content__gdpr">
-              <p>Please consider subscribing to our newesletter to get latest news from GermanMedResidency:</p>
-              <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                <label class="checkbox subfield" for="gdpr_144469"><input type="checkbox" id="gdpr_144469" name="gdpr[144469]" value="Y" class="av-checkbox "><span>Email</span> </label>
-              </fieldset>
-              <p>You can unsubscribe at any time by clicking the link in the footer of our emails. For information about our privacy practices, please visit our website.</p>
-            </div>
-            <div class="content__gdprLegal">
-              <p>We use Mailchimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to Mailchimp for processing. <a href="https://mailchimp.com/legal/terms" target="_blank">Learn more about Mailchimp's privacy practices here.</a></p>
-            </div>
-          </div>
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b7f198ecf0d37facec1a052b3_b6ce4806de" tabindex="-1" value=""></div>
-          <button type="submit" class="submit-button">Book a Consultation</button>
-        </form>
+    <div class="container">
+      
+      <h2>Book Personalised Consultation</h2>
+
+      <form action="sendmail.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+
+      </form>
+    </div>
     </section>
     <!-- End of the contact form -->
     <p></p>
