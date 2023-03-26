@@ -93,18 +93,22 @@ p {
 
 .header-image-section {
   background-image: url("header-image.png");
-  background-size: contain; /* Change this from 'cover' to 'contain' */
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; /* Add this line to prevent the image from repeating */
+  background-repeat: no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: -1rem; /* Add this line to decrease the margin below the cover image */
-  margin-top: -1rem; /* Add this line to decrease the margin below the cover image */
 }
 
+/* Add a media query for smaller devices */
+@media screen and (max-width: 768px) {
+  .header-image-section {
+    height: 200px;
+  }
+}
 
 .header-image-text {
   color: #ffffff;
@@ -165,12 +169,17 @@ main a:hover {
 
 /* Add this to your styles.css file */
 
+
+
 .cta-section {
     text-align: center;
     background-color: #fff;
     padding: 1rem;
     margin: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 .cta-button {
     display: inline-block;
@@ -350,4 +359,76 @@ footer {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+
+
+
+/* Blog posts container */
+.blog-posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Blog post styles */
+.blog-post {
+  flex-basis: calc(33.333% - 1rem);
+  margin-bottom: 2rem;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Blog post images */
+.blog-post img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Post date */
+.post-date {
+  color: #777;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Read more button */
+.read-more {
+  display: inline-block;
+  background-color: #189AB4;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.read-more:hover {
+  background-color: #D4F1F4;
+}
+
+/* Section title */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Blog Posts */
+@media (max-width: 768px) {
+  .blog-post {
+    flex-basis: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-post {
+    flex-basis: 100%;
+  }
 }
