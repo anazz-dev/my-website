@@ -46,13 +46,25 @@
       </section>
       <p></p>
     <!-- Add the contact form -->
-    <div class="container">
-      <h2>Book Personalised Consultation</h2>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScuHty9bTbzxqhU3Rm4eNgSiHu8a4ifnSk0RLDRmwGQfuTTMw/viewform?embedded=true" width="640" height="1038" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-    </section>
-
-
+    <form action="https://formspree.io/f/mnqybrkd" method="POST" class="contact-form">
+        <label class="contact-form-label">
+          First name:
+          <input type="text" name="first" placeholder="First name" class="contact-form-input">
+        </label>
+        <label class="contact-form-label">
+          Last name:
+          <input type="text" name="second" placeholder="Last name" class="contact-form-input">
+        </label>
+        <label class="contact-form-label">
+          Your email:
+          <input type="email" name="email" placeholder="Email" class="contact-form-input">
+        </label>
+        <label class="contact-form-label">
+          Your message:
+          <textarea name="message" placeholder="message" class="contact-form-textarea"></textarea>
+        </label>
+        <input type="submit" value="Send" class="submit-button">
+  </form>
 
     <!-- End of the contact form -->
     <p></p>
@@ -64,13 +76,6 @@
        <p>Email: info@germanmedresidency.com</p>
    </section>
  </main>
-
- <section class="cta-section">
-     <h2>Need personalized assistance?</h2>
-     <p>Get in touch for a 1-on-1 online consultation to guide you through the medical residency process in Germany.</p>
-     <a href="contact.html" class="cta-button">Book a Consultation</a>
- </section>
-
 
  <footer>
      <p>&copy; 2023 GermanMedResidency. All rights reserved.</p>
