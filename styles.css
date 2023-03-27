@@ -438,7 +438,7 @@ footer {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 2rem 0;
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 10px;

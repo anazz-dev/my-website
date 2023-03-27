@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support German Med Residency by making a donation.">
+  <meta name="keywords" content="medical residency, Germany, medical education, German hospitals, medical training, donate">
+  <title>Donate | German Med Residency</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+<header>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+    <a href="index.html" class="active">German Medical Residency</a>
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="support.html">Donate</</a>
+    </div>
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+    </div>
+
+</header>
+
+  <main>
+    <section>
+      <h2>Support German Med Residency</h2>
+      <p>We are committed to providing helpful resources, guidance, and information for medical residency in Germany. Your generous donation will help us maintain and expand our website, create new content, and offer personalized assistance to aspiring medical residents. Every contribution, no matter the size, makes a difference in our mission to support future healthcare professionals. Thank you for your support!</p>
+    </section>
+
+    <div id="smart-button-container">
+      <div style="text-align: left"><label for="description">Leave a message here (optional):</label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""></div>
+      <p id="descriptionError" style="visibility: hidden; color:red; text-align: left;">Please enter a description</p>
+      <div style="text-align: left"><label for="amount">Amount (EUR):</label><input name="amountInput" type="number" id="amount" value="" ><span> EUR</span></div>
+      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: left;">Please enter a price</p>
+      <div id="invoiceidDiv" style="text-align: left; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: left;">Please enter an Invoice ID</p>
+      <div style="text-align: left; margin-top: 0.625rem;" id="paypal-button-container"></div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
+
+    <script>
+    function initPayPalButton() {
+      var description = document.querySelector('#smart-button-container #description');
+      var amount = document.querySelector('#smart-button-container #amount');
+      var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+      var priceError = document.querySelector('#smart-button-container #priceLabelError');
+      var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+      var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+      var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+      var elArr = [description, amount];
+
+      if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+        invoiceidDiv.style.display = "block";
+      }
+
+      var purchase_units = [{"amount":{"currency_code":"EUR","value":1,"breakdown":{"item_total":{"currency_code":"EUR","value":1}}},"items":[{"name":"item name","unit_amount":{"currency_code":"EUR","value":1},"quantity":"1","category":"DONATION"}]}]
+
+      function validate(event) {
+        return event.value.length > 0;
+      }
+
+      paypal.Buttons({
+        style: {
+          color: 'blue',
+          shape: 'pill',
+          label: 'donate',
+          layout: 'vertical',
+
+        },
+
+        onInit: function (data, actions) {
+          actions.disable();
+
+          if(invoiceidDiv.style.display === "block") {
+            elArr.push(invoiceid);
+          }
+
+          elArr.forEach(function (item) {
+            item.addEventListener('keyup', function (event) {
+              var result = elArr.every(validate);
+              if (result) {
+                actions.enable();
+              } else {
+                actions.disable();
+              }
+            });
+          });
+        },
+
+        onClick: function () {
+          if (description.value.length < 1) {
+            descriptionError.style.visibility = "visible";
+          } else {
+            descriptionError.style.visibility = "hidden";
+          }
+
+          if (amount.value.length < 1) {
+            priceError.style.visibility = "visible";
+          } else {
+            priceError.style.visibility = "hidden";
+          }
+
+          if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+            invoiceidError.style.visibility = "visible";
+          } else {
+            invoiceidError.style.visibility = "hidden";
+          }
+
+          purchase_units[0].description = description.value;
+          purchase_units[0].amount.value = amount.value;
+          purchase_units[0].amount.breakdown.item_total.value = amount.value;
+          purchase_units[0].items[0].unit_amount.value = amount.value;
+
+          if(invoiceid.value !== '') {
+            purchase_units[0].invoice_id = invoiceid.value;
+          }
+        },
+
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: purchase_units,
+          });
+        },
+
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (orderData) {
+
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+
+          });
+        },
+
+        onError: function (err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+    </script>
+
+
+</main>
+</body>
+
+ <footer>
+     <p>&copy; 2023 GermanMedResidency. All rights reserved.</p>
+ </footer>
+
+
+</html>
