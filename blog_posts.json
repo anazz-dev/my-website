@@ -9,16 +9,25 @@
         "date": "2023-03-24",
         "url": "blog-2.html"
     },
-    }
+    {
         "title": "Understanding the Fachsprachprüfung for Medical Doctors in Germany",
         "date": "2023-03-24",
         "url": "fachsprachprufung-overview.html"
     },
-
-    }
-        "title": "How Long is Medical Residency in Germany? A Comprehensive Comparison with England, USA, Canada, and Australia",
-        "date": "2023-03-29",
-        "url": "how-long-is-medical-residency-in-germany.html"
+    {
+        "title": "application process",
+        "date": "2023-03-24",
+        "url": "application-process.html"
     },
+    {
+        "title": "Living in Germany",
+        "date": "2023-03-28",
+        "url": "living-in-Germany.html"
+    },
+    {
+        "title": "How long is medical residency in Germany?",
+        "date": "2023-03-29",
+        "url": "How-long-is-medical-residency-in-germany.html"
+    }
     // Add more blog posts here
 ]
