@@ -17,6 +17,7 @@ const blogPosts = [
     { url: "living-in-germany.html", title: "Living in Germany during Medical Residency"},
     { url: "blog-1.html", title: "Getting Started with Medical Residency in Germany"},
     { url: "application-process.html", title: "Application Process for Medical Residency in Germany"},
+    { url: "study-medicine-in-english-in-germany.html", title: "Study Medicine in English in Germany"},
 
     // Add more posts as needed
 ];
