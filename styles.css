@@ -263,32 +263,36 @@ cite {
 }
 
 
-
-/* Add this to your styles.css file */
+/* Update your styles.css file */
 
 .blog-posts {
   text-align: center;
-  padding: 1rem;
   margin: 2rem 0;
-  background-color: #ffffff
 }
 
 .blog-post-item {
-    margin-bottom: 2rem;
-    background-color: #fff;
+  margin-bottom: 1.5rem;
 }
 
 .blog-post-item h2 {
-    margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.blog-post-item .post-date {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 0.25rem;
 }
 
 .blog-post-item a {
-    color: #007BFF;
-    text-decoration: none;
+  color: #007BFF;
+  text-decoration: none;
 }
 
 .blog-post-item a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
